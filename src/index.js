@@ -10,8 +10,34 @@ import reportWebVitals from './reportWebVitals';
 import LoginPage from './pages/LoginPage';
 
 const router = createBrowserRouter([
+  // 로그인 전 페이지
   {
     path: "/",
+    element: <LoginPage />
+  },
+  {
+    path: "/:userId",
+    element: <LoginPage />
+  },
+  {
+    path: "/cloudy/:userId",
+    element: <LoginPage />
+  },
+  {
+    path: "/cloudy/detail/:letterId",
+    element: <LoginPage />
+  },
+  // 로그인 후 페이지
+  {
+    path: "/:userId",
+    element: <LoginPage />
+  },
+  {
+    path: "/settings/:userId",
+    element: <LoginPage />
+  },
+  {
+    path: "/detail/:letterId",
     element: <LoginPage />
   },
 ]);
