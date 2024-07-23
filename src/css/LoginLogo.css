@@ -1,0 +1,22 @@
+.login-logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  max-width: 480px;
+  overflow: hidden;
+  margin-bottom: 8rem;
+}
+
+.login-logo {
+  width: 130%;
+  height: 100%;
+  margin-bottom: 1rem;
+  object-fit: cover;
+}
+
+.login-dec {
+  font-family: 'GangwonEduHyeonokT_OTFMediumA';
+  font-size: var(--mid);
+  color: var(--black-color);
+}

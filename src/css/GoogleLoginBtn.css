@@ -1,0 +1,24 @@
+.google-login-btn {
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 20px;
+  background: white;
+  width: 80%;
+  max-width: 300px;
+}
+.google-login-btn:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+.google-login-logo {
+  width: 22px;
+}
+
+.google-login-label {
+  color: var(--black-color);
+  font-family: 'Pretendard Variable';
+  font-weight: 600;
+}

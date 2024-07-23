@@ -1,0 +1,18 @@
+:root {
+  --background-color: #F1F2F6;
+  --black-color: #5A5A5A;
+  --header-color: #DFE3E6;
+  --button-color: #DAE6ED;
+  --sunny-color: #FFD86C;
+
+  --mid: 25px;
+}
+
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css");
+
+@font-face {
+  font-family: 'GangwonEduHyeonokT_OTFMediumA';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEduHyeonokT_OTFMediumA.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
