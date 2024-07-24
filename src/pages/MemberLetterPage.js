@@ -1,19 +1,28 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import HeaderContainer from "../components/HeaderContainer";
 import BaseContainer from "../components/BaseContainer";
 import BaseContent from "../components/BaseContent";
 import TextBox from "../components/TextBox";
 import Button from "../components/Button";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 
 export default function MemberLetterPage() {
-  const content = '안녕! 요즘 뭐하고 지내?\n안녕! 요즘 뭐하고 지내?\n안녕! 요즘 뭐하고 지내?\n안녕! 요즘 뭐하고 지내?안녕! 요즘 뭐하고 지내?';
-  const writer = '원채';
-
-  const letterId = 4;
-  const userId = 2;
-
+  const location = useLocation();
+  const {letterId} = useParams();
   const navigate = useNavigate();
+  const [letter, setLetter] = useState();
+
+  const fetchLetterAndReply = async () => {
+    const res = await fetch(process.env.REACT_APP_SERVER_API_URL + `/letter/${letterId}`);
+    if(res.ok) {
+      const result = await res.json();
+      setLetter(result);
+    }
+  }
+
+  useEffect(() => {
+    fetchLetterAndReply();
+  }, []);
 
   const onClickBtn = async () => {
     const res = await fetch(process.env.REACT_APP_SERVER_API_URL + `/letter/${letterId}`, {
@@ -21,7 +30,7 @@ export default function MemberLetterPage() {
       credentials: 'include',
     });
     if(res.ok) {
-      navigate(`/${userId}`);
+      navigate(`/${location.state.memberId}`);
     } else {
       alert('편지를 삭제하는 데 실패했어요 🌧️');
     }
@@ -31,8 +40,8 @@ export default function MemberLetterPage() {
     <BaseContainer>
       <BaseContent>
         <HeaderContainer />
-        <TextBox content={content} writer={writer} type='LETTER' />
-        <TextBox content={content} writer={writer} type='REPLY' />
+        <TextBox content={letter?.content} writer={letter?.writer} type='LETTER' />
+        <TextBox content={letter?.answerContent} writer={letter?.memberName} type='REPLY' />
         <Button onClickBtn={onClickBtn} btnName='삭제하기' />
       </BaseContent>
     </BaseContainer>

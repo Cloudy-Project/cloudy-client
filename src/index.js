@@ -15,11 +15,11 @@ const router = createBrowserRouter([
     element: <LoginPage />,
   },
   {
-    path: "/cloudy/:userId",
+    path: "/cloudy/:memberId",
     element: <MyPage />,
   },
   {
-    path: "/cloudy/:userId",
+    path: "/cloudy/:memberId",
     element: <LoginPage />,
   },
   {
@@ -28,11 +28,11 @@ const router = createBrowserRouter([
   },
   // 로그인 후 페이지
   {
-    path: "/:userId",
+    path: "/:memberId",
     element: <MyPage />,
   },
   {
-    path: "/settings/:userId",
+    path: "/settings/:memberId",
     element: <LoginPage />,
   },
   {

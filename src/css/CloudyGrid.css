@@ -1,0 +1,47 @@
+.cloudy-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+  padding: 2.5rem;
+}
+
+.cloud {
+  overflow: hidden; 
+  position: relative;
+}
+
+.cloud > .cloud-img {
+  width: 100%;
+  cursor: pointer;
+}
+.cloud > .hover-cloud-img {
+  display: none;
+  width: 100%;
+  cursor: pointer;
+}
+.cloud > .hover-cloud-writer {
+  font-family: 'GangwonEduHyeonokT_OTFMediumA';
+  font-size: var(--ssm);
+  color: var(--black-color);
+  position: absolute;
+  display: none;
+  top: 40%;
+  left: 40%;
+}
+
+.null-container {
+  display: flex;
+  justify-self: center;
+  align-items: center;
+  height: 600px;
+}
+
+.null-content {
+  font-family: 'GangwonEduHyeonokT_OTFMediumA';
+  font-size: var(--sm);
+  color: var(--black-color);
+}
+
+.null-content > p {
+  text-align: center;
+}
