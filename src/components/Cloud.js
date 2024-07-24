@@ -1,10 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import '../css/CloudyGrid.css';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 
 export default function Cloud({letter}) {
   const [cloudDisplay, setCloudDisplay] = useState('block');
   const [cloudClearDisplay, setCloudClearDisplay] = useState('none');
   const [writerName, setWriterName] = useState('');
+
+  const location = useLocation();
+  const {memberId} = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
     if(letter.writer.length > 3) {
@@ -13,6 +18,15 @@ export default function Cloud({letter}) {
       setWriterName(letter.writer);
     }
   }, []);
+
+  const onClickCloud = () => {
+    const paths = location.pathname.split('/');
+    if(paths.length > 0 && paths[0] == 'cloudy') {
+      navigate(`/${paths[0]}/detail/${letter.id}`);
+    } else {
+      navigate(`/detail/${letter.id}`, { state: { letter: letter, memberId: memberId } });
+    }
+  }
 
   return (
     <div
@@ -25,7 +39,8 @@ export default function Cloud({letter}) {
       onMouseLeave={() => {
         setCloudDisplay('block');
         setCloudClearDisplay('none');
-      }}>
+      }}
+      onClick={onClickCloud}>
       <img
         style={{
           display: `${cloudDisplay}`

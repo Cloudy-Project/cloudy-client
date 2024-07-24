@@ -1,19 +1,33 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import HeaderContainer from "../components/HeaderContainer";
 import BaseContainer from "../components/BaseContainer";
 import BaseContent from "../components/BaseContent";
 import TextBox from "../components/TextBox";
+import { useParams } from "react-router-dom";
 
 export default function MyPage() {
-  const content = '안녕! 요즘 뭐하고 지내?\n안녕! 요즘 뭐하고 지내?\n안녕! 요즘 뭐하고 지내?\n안녕! 요즘 뭐하고 지내?안녕! 요즘 뭐하고 지내?';
-  const writer = '원채';
+  const {letterId} = useParams();
+  const {letter, setLetter} = useState();
+
+  const fetchLetterAndReply = async () => {
+    const res = await fetch(process.env.REACT_APP_SERVER_API_URL + `/letter/${letterId}`);
+    if(res.ok) {
+      const result = await res.json();
+      console.log(result);
+      setLetter(result);
+    }
+  }
+
+  useEffect(() => {
+    fetchLetterAndReply();
+  }, []);
 
   return (
     <BaseContainer>
       <BaseContent>
         <HeaderContainer />
-        <TextBox content={content} writer={writer} type='LETTER' />
-        <TextBox content={content} writer={writer} type='REPLY' />
+        <TextBox content={letter?.content} writer={letter?.writer} type='LETTER' />
+        <TextBox content={letter?.answerContent} writer={letter?.memberName} type='REPLY' />
       </BaseContent>
     </BaseContainer>
   )
