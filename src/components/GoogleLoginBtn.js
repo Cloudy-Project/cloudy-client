@@ -1,14 +1,15 @@
 import React from 'react'
 import '../css/GoogleLoginBtn.css';
+import { Link } from 'react-router-dom';
 
 export default function GoogleLoginBtn() {
   return (
-    <div className='google-login-btn'>
-      <img className='google-login-logo' src={require('../assets/img/icon_logo_Google.png')} alt='' />
-      <label className='google-login-label'>
-        Google로 로그인
-      </label>
-      <img className='google-login-logo' alt='' />
-    </div>
+      <a href={process.env.REACT_APP_SERVER_URL + "/oauth2/authorization/google"} className='google-login-btn'>
+        <img className='google-login-logo' src={require('../assets/img/icon_logo_Google.png')} alt='' />
+        <p className='google-login-label'>
+          Google로 로그인
+        </p>
+        <img className='google-login-logo' alt='' />
+      </a>
   )
 }
