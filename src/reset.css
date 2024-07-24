@@ -30,6 +30,9 @@ footer, header, hgroup, menu, nav, section {
 }
 a {color: #fff; text-decoration: none; outline: none}
 a:hover, a:active {text-decoration: none; color: none; background-color:none;}
+button{
+	background: inherit ; border:none; box-shadow:none; border-radius:0; padding:0; overflow:visible; cursor:pointer
+}
 body {
 	line-height: 1;
 }
