@@ -35,7 +35,7 @@ export default function CloudyGrid({memberId}) {
         : (
             <div className='cloudy-grid'>
               {letters.map(letter =>
-                <Cloud letter={letter} />
+                <Cloud letter={letter} key={letter.id} />
               )}
             </div>
           )
