@@ -1,11 +1,10 @@
 import React from "react";
 import "../css/HeaderContainer.css";
 
-export default function HeaderContainer({ children }) {
+export default function HeaderContainer({ username }) {
   return (
     <div className="header-container">
-      {children}
-      <label className="user-text">{}이의 편지함</label>
+      <label className="user-text">{username}이의 편지함</label>
     </div>
   );
 }
