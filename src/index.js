@@ -1,51 +1,53 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import LoginPage from './pages/LoginPage';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import LoginPage from "./pages/LoginPage";
+import MyPage from "./pages/MyPage";
 
 const router = createBrowserRouter([
   // 로그인 전 페이지
   {
     path: "/",
-    element: <LoginPage />
+    element: <LoginPage />,
   },
   {
     path: "/:userId",
-    element: <LoginPage />
+    element: <LoginPage />,
   },
   {
     path: "/cloudy/:userId",
-    element: <LoginPage />
+    element: <LoginPage />,
   },
   {
     path: "/cloudy/detail/:letterId",
-    element: <LoginPage />
+    element: <LoginPage />,
   },
   // 로그인 후 페이지
   {
     path: "/:userId",
-    element: <LoginPage />
+    element: <LoginPage />,
   },
   {
     path: "/settings/:userId",
-    element: <LoginPage />
+    element: <LoginPage />,
   },
   {
     path: "/detail/:letterId",
-    element: <LoginPage />
+    element: <LoginPage />,
+  },
+
+  //테스트용
+  {
+    path: "/mypage",
+    element: <MyPage />,
   },
 ]);
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <RouterProvider router={router} />
-);
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(<RouterProvider router={router} />);
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
