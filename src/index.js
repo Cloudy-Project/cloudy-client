@@ -15,7 +15,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/:userId",
-    element: <LoginPage />,
+    element: <MyPage />,
   },
   {
     path: "/cloudy/:userId",
