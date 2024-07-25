@@ -26,7 +26,7 @@ export default function WritePage() {
 
   useEffect(() => {
     fetchMember();
-  }, []);
+  }, [memberId]);
 
   const onClickBtn = async () => {
     if(content === '') {

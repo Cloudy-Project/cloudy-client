@@ -20,7 +20,7 @@ export default function MyPage() {
 
   useEffect(() => {
     fetchMember();
-  }, []);
+  }, [memberId]);
 
   // 편지 전체 조회
   const [letters, setLetters] = useState([]);
@@ -35,7 +35,7 @@ export default function MyPage() {
 
   useEffect(() => {
     fetchLetters();
-  }, []);
+  }, [letters]);
 
   return (
     <BaseContainer>

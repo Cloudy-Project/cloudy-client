@@ -7,7 +7,7 @@ export default function InputBox({onChange, content, name = ''}) {
 
   useEffect(() => {
     setConsonant(getConsonant2(name));
-  }, [])
+  }, [name])
 
   return (
     <div className='letter-box'>

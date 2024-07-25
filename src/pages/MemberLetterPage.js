@@ -39,7 +39,7 @@ export default function MemberLetterPage() {
 
   useEffect(() => {
     fetchLetterAndReply();
-  }, []);
+  }, [letter]);
 
   const onClickSubmit = async () => {
     const method = letter.answerId === null ? 'POST' : 'PATCH';

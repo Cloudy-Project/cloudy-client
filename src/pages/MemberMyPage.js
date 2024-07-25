@@ -34,7 +34,7 @@ export default function MemberMyPage() {
 
   useEffect(() => {
     fetchLetters();
-  }, []);
+  }, [letters]);
 
   return (
     <BaseContainer>

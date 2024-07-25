@@ -32,7 +32,7 @@ export default function LetterPage() {
 
   useEffect(() => {
     fetchLetterAndReply();
-  }, []);
+  }, [letter]);
 
   return (
     <BaseContainer>
