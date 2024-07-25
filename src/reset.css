@@ -33,6 +33,14 @@ a:hover, a:active {text-decoration: none; color: none; background-color:none;}
 button{
 	background: inherit ; border:none; box-shadow:none; border-radius:0; padding:0; overflow:visible; cursor:pointer
 }
+input {
+  all: unset;
+}
+textarea {
+	outline: none;
+	border-style: none;
+	resize: none;
+}
 body {
 	line-height: 1;
 }

@@ -5,9 +5,9 @@ import BaseContent from "../components/BaseContent";
 import TextBox from "../components/TextBox";
 import { useParams } from "react-router-dom";
 
-export default function MyPage() {
+export default function LetterPage() {
   const {letterId} = useParams();
-  const {letter, setLetter} = useState();
+  const [letter, setLetter] = useState();
 
   const fetchLetterAndReply = async () => {
     const res = await fetch(process.env.REACT_APP_SERVER_API_URL + `/letter/${letterId}`);

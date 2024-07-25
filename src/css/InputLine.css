@@ -1,0 +1,10 @@
+.input-line {
+  font-family: 'GangwonEduHyeonokT_OTFMediumA';
+  border-bottom: 1px solid var(--black-color);
+  margin: 0 1rem;
+  padding: 0.1rem 0.3rem;
+  text-align: center;
+}
+.input-line::placeholder {
+  opacity: 0.5
+}
