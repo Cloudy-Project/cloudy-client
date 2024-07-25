@@ -3,7 +3,7 @@ import HeaderContainer from "../components/HeaderContainer";
 import BaseContainer from "../components/BaseContainer";
 import BaseContent from "../components/BaseContent";
 import TextBox from "../components/TextBox";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import FetchMember from "../utils/FetchMember";
 
 export default function LetterPage() {

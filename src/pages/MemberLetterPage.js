@@ -4,7 +4,7 @@ import BaseContainer from "../components/BaseContainer";
 import BaseContent from "../components/BaseContent";
 import TextBox from "../components/TextBox";
 import Button from "../components/Button";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import ReplyInputBox from "../components/ReplyInputBox";
 import Label from "../components/Label";
 import FetchMember from "../utils/FetchMember";

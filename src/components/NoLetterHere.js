@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import Gap from './Gap';
 import { useLocation } from 'react-router-dom';
 import Button from './Button';
