@@ -25,7 +25,7 @@ export default function HeaderContainer({ name = '' }) {
 
   return (
     <div className='header-container'>
-      <button className='home-btn' onClick={goToMypage}>
+      <button className='home-btn' type='button' onClick={goToMypage}>
         <img src={require('../assets/img/Home.png')} alt=''/>
       </button>
       <label className='user-text'>{name}{consonant} 편지함</label>
