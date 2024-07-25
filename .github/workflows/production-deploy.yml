@@ -32,18 +32,21 @@ jobs:
 
       - name: Install Dependencies
         run: npm install
+      
+      - name: Install Pnpm
+        run: npm install -g pnpm
 
-      # # 환경변수 적용
-      # - name: Set environment variables
-      #   run: |
-      #     echo "${{ secrets.APPLICATION_SECRETS }}" >> .env
+      # 환경변수 적용
+      - name: Set environment variables
+        run: |
+          echo "${{ secrets.APPLICATION_SECRETS }}" >> .env
 
       - name: Build
         run: |
-          npm run build
-        env:
-          REACT_APP_SERVER_URL: ${{ secrets.REACT_APP_SERVER_URL }}
-          REACT_APP_SERVER_API_URL: ${{ secrets.REACT_APP_SERVER_API_URL }}
+          pnpm run build
+        # env:
+        #   REACT_APP_SERVER_URL: ${{ secrets.REACT_APP_SERVER_URL }}
+        #   REACT_APP_SERVER_API_URL: ${{ secrets.REACT_APP_SERVER_API_URL }}
 
       # 서버로 build 파일 전송
       - name: Copy build/ folder to EC2
