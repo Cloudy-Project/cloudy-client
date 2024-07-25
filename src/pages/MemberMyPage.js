@@ -8,9 +8,10 @@ import FetchMember from "../utils/FetchMember";
 import NoLetterHere from "../components/NoLetterHere";
 import getConsonant2 from "../utils/GetConsonant2";
 
-export default function MyPage() {
+export default function MemberMyPage() {
   const {memberId} = useParams();
   const [member, setMember] = useState();
+  const [namec, setNamec] = useState();
 
   const fetchMember = async () => {
     const member = await FetchMember(memberId)
@@ -46,12 +47,8 @@ export default function MyPage() {
         ? (
           <CloudyGrid memberId={memberId} letters={letters} />
         )
-        : member !== undefined
-        ? (
-          <NoLetterHere isLogin={false} memberName={member + getConsonant2(member)} />
-        )
         : (
-          <></>
+          <NoLetterHere isLogin={true} />
         )}
       </BaseContent>
     </BaseContainer>

@@ -31,12 +31,16 @@
 
 .null-container {
   display: flex;
-  justify-self: center;
+  justify-content: center;
   align-items: center;
   height: 600px;
 }
 
 .null-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   font-family: 'GangwonEduHyeonokT_OTFMediumA';
   font-size: var(--sm);
   color: var(--black-color);
