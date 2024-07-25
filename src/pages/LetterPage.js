@@ -20,7 +20,7 @@ export default function LetterPage() {
 
   useEffect(() => {
     fetchMember();
-  }, []);
+  }, [location.state]);
 
   const fetchLetterAndReply = async () => {
     const res = await fetch(process.env.REACT_APP_SERVER_API_URL + `/letter/${letterId}`);

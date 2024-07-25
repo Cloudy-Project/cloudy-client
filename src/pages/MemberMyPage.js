@@ -11,7 +11,6 @@ import FloatingBtn from "../components/FloatingBtn";
 export default function MemberMyPage() {
   const {memberId} = useParams();
   const [member, setMember] = useState();
-  const [namec, setNamec] = useState();
 
   const fetchMember = async () => {
     const member = await FetchMember(memberId)
@@ -20,7 +19,7 @@ export default function MemberMyPage() {
 
   useEffect(() => {
     fetchMember();
-  }, []);
+  }, [memberId]);
 
   // 편지 전체 조회
   const [letters, setLetters] = useState([]);
