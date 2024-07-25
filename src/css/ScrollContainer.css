@@ -1,0 +1,5 @@
+.scroll-container {
+  padding-bottom: 10rem;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}

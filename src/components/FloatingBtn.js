@@ -2,7 +2,7 @@ import React from 'react';
 import '../css/FloatingBtn.css';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 
-export default function FloatingBtn({ }) {
+export default function FloatingBtn() {
     const location = useLocation();
     const navigate = useNavigate();
     const {memberId} = useParams();
@@ -16,14 +16,15 @@ export default function FloatingBtn({ }) {
     };
 
     return (
-      <button className='floating-button' onClick={(onClickBtn)}>
-        <img 
+      <div className='floating-button' onClick={(onClickBtn)}>
+        <img
+                className='floating-btn-img'
                 src={location.pathname.includes('cloudy') 
                     ? require('../assets/img/sunny.png') // 로그인 전 플로팅 버튼
                     : require('../assets/img/pen.png') // 로그인 후 플로팅 버튼
                 } 
                 alt='' 
         />
-      </button>
+      </div>
     );
 }

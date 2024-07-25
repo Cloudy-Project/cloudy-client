@@ -5,16 +5,16 @@ import BaseContent from "../components/BaseContent";
 import TextBox from "../components/TextBox";
 import Button from "../components/Button";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
-import AnswerInputBox from "../components/AnswerInputBox";
+import ReplyInputBox from "../components/ReplyInputBox";
 import Label from "../components/Label";
 import FetchMember from "../utils/FetchMember";
 
 export default function MemberLetterPage() {
   const location = useLocation();
   const {letterId} = useParams();
-  const navigate = useNavigate();
   const [letter, setLetter] = useState();
   const [loading, setLoading] = useState(true);
+  const [replyContent, setReplyContent] = useState();
 
   const [memberName, setMemberName] = useState();
 
@@ -32,6 +32,7 @@ export default function MemberLetterPage() {
     if(res.ok) {
       const result = await res.json();
       setLetter(result);
+      setReplyContent(result.content);
       setLoading(false);
     }
   }
@@ -40,18 +41,45 @@ export default function MemberLetterPage() {
     fetchLetterAndReply();
   }, []);
 
-  const onClickBtn = async () => {
-    if(window.confirm('이 편지와 답장을 정말 삭제하시겠어요? 🥲') == false) {
-      return;
+  const onClickSubmit = async () => {
+    const method = letter.answerId === null ? 'POST' : 'PATCH';
+    let body;
+    if(method === 'POST') {
+      body = {
+        "letterId": letterId,
+        "memberId": location.state.memberId,
+        "content": replyContent
+      }
+    } else if(method === 'PATCH') {
+      body = {
+        "id": letter.answerId,
+        "content": replyContent
+      }
     }
-    const res = await fetch(process.env.REACT_APP_SERVER_API_URL + `/letter/${letterId}`, {
-      method: 'DELETE',
+    const res = await fetch(process.env.REACT_APP_SERVER_API_URL + `/answer`, {
+      method: method,
       credentials: 'include',
-    });
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(body)
+    })
     if(res.ok) {
-      navigate(`/${location.state.memberId}`);
-    } else {
-      alert('편지를 삭제하는 데 실패했어요 🌧️');
+      if(method === 'POST') {
+        alert('🌧️ 답장을 보냈어요!');
+      } else if(method === 'PATCH') {
+        alert('🌧️ 답장을 수정했어요!');
+      }
+      window.location.reload();
+    }
+  }
+
+  const onChange = (e) => setReplyContent(e.target.value);
+
+  const onKeyDown = async (e) => {
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault();
+      await onClickSubmit();
     }
   }
 
@@ -69,17 +97,18 @@ export default function MemberLetterPage() {
     <BaseContainer>
       <BaseContent>
         <HeaderContainer name={memberName} />
-        <TextBox content={letter?.content} writer={letter?.writer} type='LETTER' />
-        {letter != null && (
-          <AnswerInputBox
-            letterId={letter?.id}
-            memberId={letter?.memberId}
-            replier={letter?.memberName}
-            replyId={letter?.answerId}
-            replyContent={letter?.answerContent}
+        {letter !== undefined && (
+          <>
+          <TextBox letterId={letterId} memberId={location.state.memberId} content={letter.content} writer={letter.writer} type='LETTER' />
+          <ReplyInputBox
+            replier={letter.memberName}
+            replyContent={replyContent}
+            onChange={onChange}
+            onKeyDown={onKeyDown}
             type='REPLY' />
+          </>
         )}
-        <Button onClickBtn={onClickBtn} btnName='삭제하기' />
+        <Button onClickBtn={onClickSubmit} btnName='저장하기' />
       </BaseContent>
     </BaseContainer>
   )

@@ -3,7 +3,7 @@ import HeaderContainer from "../components/HeaderContainer";
 import BaseContainer from "../components/BaseContainer";
 import BaseContent from "../components/BaseContent";
 import TextBox from "../components/TextBox";
-import { useLocation, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import FetchMember from "../utils/FetchMember";
 
 export default function LetterPage() {
@@ -26,7 +26,6 @@ export default function LetterPage() {
     const res = await fetch(process.env.REACT_APP_SERVER_API_URL + `/letter/${letterId}`);
     if(res.ok) {
       const result = await res.json();
-      console.log(result);
       setLetter(result);
     }
   }
@@ -39,8 +38,12 @@ export default function LetterPage() {
     <BaseContainer>
       <BaseContent>
         <HeaderContainer name={memberName} />
-        <TextBox content={letter?.content} writer={letter?.writer} type='LETTER' />
-        <TextBox content={letter?.answerContent} writer={letter?.memberName} type='REPLY' />
+        {letter !== undefined && (
+          <>
+          <TextBox content={letter.content} writer={letter.writer} type='LETTER' />
+          <TextBox content={letter.answerContent} writer={letter.memberName} type='REPLY' />
+          </>
+        )}
       </BaseContent>
     </BaseContainer>
   )
