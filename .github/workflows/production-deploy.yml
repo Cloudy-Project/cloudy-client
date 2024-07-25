@@ -37,11 +37,7 @@ jobs:
       - name: Set environment variables
         run: |
           echo ${{ secrets.APPLICATION_SECRETS }} >> .env
-
-      - name: Build
-        run: |
-          npm run build
-
+          
       # Dockerhub 로그인
       - name: Login to Dockerhub
         uses: docker/login-action@v3
