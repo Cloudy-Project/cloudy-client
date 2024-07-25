@@ -8,6 +8,14 @@ export default function TextBox({letterId, memberId, content, writer, type}) {
   const navigate = useNavigate();
   
   if(type === 'LETTER') {
+    if(letterId === undefined) {
+      return (
+      <div className='letter-box'>
+        <p className='content'>{content}</p>
+        <p className='writer'>- {writer} -</p>
+      </div>
+      )
+    }
     const onClickDeleteBtn = async () => {
       if(window.confirm('이 편지와 답장을 정말 삭제하시겠어요? 🥲') == false) {
         return;
