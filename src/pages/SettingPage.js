@@ -31,7 +31,7 @@ export default function SettingPage() {
 
   const onClickLink = (e) => {
     e.stopPropagation();
-    navigator.clipboard.writeText(window.location.host + location.pathname);
+    navigator.clipboard.writeText(window.location.host + '/cloudy/' + memberId);
     alert('클립보드에 링크가 복사되었어요!');
   }
 
@@ -100,7 +100,7 @@ export default function SettingPage() {
               <InputLine onChange={setMemberName} content={memberName} />
               <Label content='편지함 링크' />
               <UnderbarText onClick={(e) => onClickLink(e)}>
-                {window.location.host + location.pathname}
+                {window.location.host + '/cloudy/' + memberId}
               </UnderbarText>
             </div>
             <Gap gap={200} />
