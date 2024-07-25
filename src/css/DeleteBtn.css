@@ -1,0 +1,10 @@
+.delete-btn {
+  position: absolute;
+  width: 15px;
+  top: 20px;
+  right: 25px;
+}
+
+.delete-btn > .trash-img {
+  width: 100%;
+}

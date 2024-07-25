@@ -51,7 +51,7 @@ export default function MemberMyPage() {
         : (
           <NoLetterHere isLogin={true} />
         )}
-        <FloatingBtn type='SETTINGS' />
+        <FloatingBtn />
       </BaseContent>
     </BaseContainer>
   )

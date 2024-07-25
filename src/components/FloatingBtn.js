@@ -2,7 +2,7 @@ import React from 'react';
 import '../css/FloatingBtn.css';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 
-export default function FloatingBtn({ }) {
+export default function FloatingBtn() {
     const location = useLocation();
     const navigate = useNavigate();
     const {memberId} = useParams();
@@ -14,8 +14,6 @@ export default function FloatingBtn({ }) {
             navigate(`/settings/${memberId}`); // /로그인한 경우
         }
     };
-
-    const img = type === 'SETTINGS' ? require('../assets/img/pen.png') : require('../assets/img/sunny.png');
 
     return (
       <div className='floating-button' onClick={(onClickBtn)}>

@@ -52,7 +52,7 @@ export default function SettingPage() {
     })
     if(res.ok) {
       alert('이름을 수정했어요!');
-      window.location.reload();
+      navigation(`/${memberId}`, {replace: true});
     }
   }
 
