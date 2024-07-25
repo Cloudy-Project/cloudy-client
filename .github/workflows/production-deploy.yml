@@ -41,6 +41,8 @@ jobs:
       - name: Build
         run: |
           npm run build
+        env:
+          .env
 
       # 서버로 build 파일 전송
       - name: Copy build/ folder to EC2
