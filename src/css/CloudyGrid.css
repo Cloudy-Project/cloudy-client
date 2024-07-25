@@ -3,6 +3,8 @@
   grid-template-columns: 1fr 1fr 1fr;
   gap: 1rem;
   padding: 2.5rem;
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
 
 .cloud {
