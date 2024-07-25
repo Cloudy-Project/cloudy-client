@@ -4,7 +4,7 @@ import BaseContent from '../components/BaseContent'
 import Box from '../components/Box'
 import HeaderContainer from '../components/HeaderContainer'
 import FetchMember from '../utils/FetchMember'
-import { useLocation, useNavigate, useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import Label from '../components/Label'
 import InputLine from '../components/InputLine'
 import Gap from '../components/Gap'
@@ -25,7 +25,6 @@ export default function SettingPage() {
     fetchMember();
   }, []);
 
-  const location = useLocation();
   const navigation = useNavigate();
 
   const onClickLink = (e) => {
