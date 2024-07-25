@@ -1,0 +1,9 @@
+.flex-row-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 2rem;
+  margin: 0 1rem;
+  width: 70%;
+  max-width: 480px;
+}

@@ -7,6 +7,7 @@ import LoginPage from "./pages/LoginPage";
 import MyPage from "./pages/MyPage";
 import MemberLetterPage from "./pages/MemberLetterPage";
 import LetterPage from "./pages/LetterPage";
+import WritePage from "./pages/WritePage";
 
 const router = createBrowserRouter([
   // 로그인 전 페이지
@@ -19,12 +20,12 @@ const router = createBrowserRouter([
     element: <MyPage />,
   },
   {
-    path: "/cloudy/:memberId",
-    element: <LoginPage />,
-  },
-  {
     path: "/cloudy/detail/:letterId",
     element: <LetterPage />,
+  },
+  {
+    path: "/cloudy/letter/member/:memberId",
+    element: <WritePage />,
   },
   // 로그인 후 페이지
   {
