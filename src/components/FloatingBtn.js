@@ -1,7 +1,6 @@
 import React from 'react';
 import '../css/FloatingBtn.css';
 import { useNavigate } from 'react-router-dom';
-import sunny from '../assets/img/sunny.png';
 
 export default function FloatingBtn({ }) {
     const navigate = useNavigate();
@@ -11,7 +10,7 @@ export default function FloatingBtn({ }) {
 
     return (
       <button className='floating-button' onClick={(onClickBtn)}>
-        <img src={sunny} alt=' ' /> 
+        <img src={require('../assets/img/sunny.png')} alt='' />  
       </button>
-    )
+    );
 }
