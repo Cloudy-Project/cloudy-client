@@ -4,6 +4,7 @@ import BaseContainer from "../components/BaseContainer";
 import BaseContent from "../components/BaseContent";
 import CloudyGrid from "../components/CloudyGrid";
 import { useParams } from "react-router-dom";
+import FloatingBtn from "../components/FloatingBtn";
 
 export default function MyPage() {
   const {memberId} = useParams();
@@ -13,6 +14,7 @@ export default function MyPage() {
       <BaseContent>
         <HeaderContainer />
         <CloudyGrid memberId={memberId} />
+        <FloatingBtn />
       </BaseContent>
     </BaseContainer>
   )
