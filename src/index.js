@@ -2,10 +2,11 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
-import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import LoginPage from "./pages/LoginPage";
 import MyPage from "./pages/MyPage";
+import MemberLetterPage from "./pages/MemberLetterPage";
+import LetterPage from "./pages/LetterPage";
 
 const router = createBrowserRouter([
   // 로그인 전 페이지
@@ -14,35 +15,29 @@ const router = createBrowserRouter([
     element: <LoginPage />,
   },
   {
-    path: "/:userId",
-    element: <LoginPage />,
+    path: "/cloudy/:memberId",
+    element: <MyPage />,
   },
   {
-    path: "/cloudy/:userId",
+    path: "/cloudy/:memberId",
     element: <LoginPage />,
   },
   {
     path: "/cloudy/detail/:letterId",
-    element: <LoginPage />,
+    element: <LetterPage />,
   },
   // 로그인 후 페이지
   {
-    path: "/:userId",
-    element: <LoginPage />,
+    path: "/:memberId",
+    element: <MyPage />,
   },
   {
-    path: "/settings/:userId",
+    path: "/settings/:memberId",
     element: <LoginPage />,
   },
   {
     path: "/detail/:letterId",
-    element: <LoginPage />,
-  },
-
-  //테스트용
-  {
-    path: "/mypage",
-    element: <MyPage />,
+    element: <MemberLetterPage />,
   },
 ]);
 

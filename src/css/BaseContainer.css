@@ -1,3 +1,4 @@
+@import url(../reset.css);
 @import url(./root.css);
 
 .base-container {
@@ -16,4 +17,5 @@
   justify-content: center;
   padding: 1rem;
   height: 100%;
+  width: 100%;
 }

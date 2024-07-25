@@ -6,6 +6,8 @@
   --sunny-color: #FFD86C;
 
   --mid: 25px;
+  --sm: 20px;
+  --ssm: 15px;
 }
 
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css");
