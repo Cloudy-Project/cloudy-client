@@ -8,6 +8,8 @@ import MyPage from "./pages/MyPage";
 import MemberLetterPage from "./pages/MemberLetterPage";
 import LetterPage from "./pages/LetterPage";
 import WritePage from "./pages/WritePage";
+import SettingPage from "./pages/SettingPage";
+import MemberMyPage from "./pages/MemberMyPage";
 
 const router = createBrowserRouter([
   // 로그인 전 페이지
@@ -30,11 +32,11 @@ const router = createBrowserRouter([
   // 로그인 후 페이지
   {
     path: "/:memberId",
-    element: <MyPage />,
+    element: <MemberMyPage />,
   },
   {
     path: "/settings/:memberId",
-    element: <LoginPage />,
+    element: <SettingPage />,
   },
   {
     path: "/detail/:letterId",

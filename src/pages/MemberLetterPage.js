@@ -7,6 +7,7 @@ import Button from "../components/Button";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import AnswerInputBox from "../components/AnswerInputBox";
 import Label from "../components/Label";
+import FetchMember from "../utils/FetchMember";
 
 export default function MemberLetterPage() {
   const location = useLocation();
@@ -14,6 +15,17 @@ export default function MemberLetterPage() {
   const navigate = useNavigate();
   const [letter, setLetter] = useState();
   const [loading, setLoading] = useState(true);
+
+  const [memberName, setMemberName] = useState();
+
+  const fetchMember = async () => {
+    const memberName = await FetchMember(location.state.memberId);
+    setMemberName(memberName.name);
+  }
+
+  useEffect(() => {
+    fetchMember();
+  }, []);
 
   const fetchLetterAndReply = async () => {
     const res = await fetch(process.env.REACT_APP_SERVER_API_URL + `/letter/${letterId}`);
@@ -56,7 +68,7 @@ export default function MemberLetterPage() {
   return (
     <BaseContainer>
       <BaseContent>
-        <HeaderContainer />
+        <HeaderContainer name={memberName} />
         <TextBox content={letter?.content} writer={letter?.writer} type='LETTER' />
         {letter != null && (
           <AnswerInputBox

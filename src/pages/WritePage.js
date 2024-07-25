@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import InputBox from '../components/InputBox'
 import InputLine from '../components/InputLine'
 import BaseContainer from '../components/BaseContainer';
@@ -9,12 +9,24 @@ import Label from '../components/Label';
 import Button from '../components/Button';
 import { useNavigate, useParams } from 'react-router-dom';
 import Gap from '../components/Gap';
+import FetchMember from '../utils/FetchMember';
 
 export default function WritePage() {
   const [writer, setWriter] = useState('');
   const [content, setContent] = useState('');
   const {memberId} = useParams();
   const navigate = useNavigate();
+
+  const [memberName, setMemberName] = useState();
+
+  const fetchMember = async () => {
+    const memberName = await FetchMember(memberId)
+    setMemberName(memberName.name);
+  }
+
+  useEffect(() => {
+    fetchMember();
+  }, []);
 
   const onClickBtn = async () => {
     if(content === '') {
@@ -46,8 +58,8 @@ export default function WritePage() {
   return (
     <BaseContainer>
       <BaseContent>
-        <HeaderContainer />
-        <InputBox onChange={setContent} content={content} type='LETTER' />
+        <HeaderContainer name={memberName} />
+        <InputBox onChange={setContent} content={content} name={memberName} />
         <FlexRow>
           <Label content='보내는 분 :' />
           <InputLine onChange={setWriter} content={writer} />
