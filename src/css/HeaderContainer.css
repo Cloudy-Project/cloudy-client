@@ -1,10 +1,16 @@
 .header-container {
-  /* position: fixed; */
-  /* top: 0; */
-  /* left: 50%; */
-  transform: translateX(-50%);
-  max-width: 480px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 0.8rem;
+  padding-bottom: 2rem;
   width: 100%;
-  height: 153px;
+  height: 150px;
   background: var(--header-color);
+}
+
+.user-text {
+  font-family: "GangwonEduHyeonokT_OTFMediumA";
+  font-size: var(--mid);
+  color: var( --black-color);
 }
