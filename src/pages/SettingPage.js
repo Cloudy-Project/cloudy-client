@@ -23,7 +23,7 @@ export default function SettingPage() {
 
   useEffect(() => {
     fetchMember();
-  }, [memberId]);
+  }, []);
 
   const navigation = useNavigate();
 

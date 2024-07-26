@@ -17,7 +17,7 @@ export default function Cloud({letter}) {
     } else {
       setWriterName(letter.writer);
     }
-  }, [letter.writer]);
+  }, []);
 
   const onClickCloud = () => {
     const paths = location.pathname.split('/');

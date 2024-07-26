@@ -25,7 +25,7 @@ export default function MemberLetterPage() {
 
   useEffect(() => {
     fetchMember();
-  }, [location.state]);
+  }, []);
 
   const fetchLetterAndReply = async () => {
     const res = await fetch(process.env.REACT_APP_SERVER_API_URL + `/letter/${letterId}`);
@@ -39,7 +39,7 @@ export default function MemberLetterPage() {
 
   useEffect(() => {
     fetchLetterAndReply();
-  }, [letter]);
+  }, []);
 
   const onClickSubmit = async () => {
     const method = letter.answerId === null ? 'POST' : 'PATCH';

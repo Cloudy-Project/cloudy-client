@@ -7,7 +7,7 @@ export default function HeaderContainer({ name = '' }) {
 
   useEffect(() => {
     setConsonant(getConsonant(name));
-  }, [name])
+  }, [])
 
   return (
     <div className='header-container'>
