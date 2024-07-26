@@ -33,16 +33,10 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
-      # # 환경변수 적용
-      # - name: Set environment variables
-      #   run: |
-      #     echo "${{ secrets.APPLICATION_SECRETS }}" >> .env
-
       # 환경변수 적용
       - name: Set environment variables
         run: |
-          echo "REACT_APP_SERVER_URL=${{ secrets.REACT_APP_SERVER_URL }}" >> $GITHUB_ENV
-          echo "REACT_APP_SERVER_API_URL=${{ secrets.REACT_APP_SERVER_API_URL }}" >> $GITHUB_ENV
+          echo "${{ secrets.APPLICATION_SECRETS }}" >> .env
 
       - name: Build
         run: |
