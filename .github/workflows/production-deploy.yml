@@ -3,9 +3,6 @@ on:
   push:
     branches:
       - feature/21-cicd
-env:
-  DOCKERHUB_USERNAME: ywonchae1
-  DOCKERHUB_IMAGE_NAME: cloudy-client
 
 jobs:
   build-deploy:
