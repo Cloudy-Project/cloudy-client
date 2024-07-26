@@ -17,7 +17,7 @@ export default function TextBox({letterId, memberId, content, writer, type}) {
       )
     }
     const onClickDeleteBtn = async () => {
-      if(window.confirm('이 편지와 답장을 정말 삭제하시겠어요? 🥲') == false) {
+      if(window.confirm('이 편지와 답장을 정말 삭제하시겠어요? 🥲') === false) {
         return;
       }
       const res = await fetch(process.env.REACT_APP_SERVER_API_URL + `/letter/${letterId}`, {

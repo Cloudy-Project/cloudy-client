@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import getConsonant from '../utils/GetConsonant';
 
 export default function ReplyInputBox({replier, replyContent, onChange, onKeyDown}) {

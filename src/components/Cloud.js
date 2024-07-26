@@ -21,7 +21,7 @@ export default function Cloud({letter}) {
 
   const onClickCloud = () => {
     const paths = location.pathname.split('/');
-    if(paths.length > 0 && paths[1] == 'cloudy') {
+    if(paths.length > 0 && paths[1] === 'cloudy') {
       navigate(`/${paths[1]}/detail/${letter.id}`, { state: { letter: letter, memberId: memberId } });
     } else {
       navigate(`/detail/${letter.id}`, { state: { letter: letter, memberId: memberId } });

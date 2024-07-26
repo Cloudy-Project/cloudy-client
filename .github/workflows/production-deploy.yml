@@ -1,0 +1,63 @@
+name: production Deploy
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    environment: PROD
+    strategy:
+      matrix:
+        node-version: [20.x]
+
+    steps:
+      # 기본 체크아웃
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v4
+        with:
+          # Version Spec of the version to use in SemVer notation.
+          # It also emits such aliases as lts, latest, nightly and canary builds
+          # Examples: 12.x, 10.15.1, >=10.15.0, lts/Hydrogen, 16-nightly, latest, node
+          node-version: '20'
+
+      - name: Check Node v
+        run: node -v
+
+      - name: Install Dependencies
+        run: npm install
+
+      # 환경변수 적용
+      - name: Set environment variables
+        run: |
+          echo "${{ secrets.APPLICATION_SECRETS }}" >> .env
+
+      - name: Build
+        run: |
+          npm run build
+        env:
+          CI: ""
+
+      # 서버로 build 파일 전송
+      - name: Copy build/ folder to EC2
+        uses: burnett01/rsync-deployments@7.0.1
+        with:
+          switches: -avzr --delete
+          remote_host: ${{ secrets.EC2_HOST }}
+          remote_user: ${{ secrets.EC2_USERNAME }}
+          remote_key: ${{ secrets.EC2_PRIVATE_KEY }}
+          path: build/
+          remote_path: /home/${{ secrets.EC2_USERNAME }}/client/
+
+      # 폴더 복제
+      - name: Deploy to EC2 Server
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USERNAME }}
+          key: ${{ secrets.EC2_PRIVATE_KEY }}
+          script: |
+            sudo cp -r /home/${{ secrets.EC2_USERNAME }}/client/* /usr/local/cloudy-app/

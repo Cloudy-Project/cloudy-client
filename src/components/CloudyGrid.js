@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import '../css/CloudyGrid.css';
 import Cloud from './Cloud';
 import ScrollContainer from './ScrollContainter';

@@ -6,13 +6,11 @@ import CloudyGrid from "../components/CloudyGrid";
 import { useParams } from "react-router-dom";
 import FetchMember from "../utils/FetchMember";
 import NoLetterHere from "../components/NoLetterHere";
-import getConsonant2 from "../utils/GetConsonant2";
 import FloatingBtn from "../components/FloatingBtn";
 
 export default function MemberMyPage() {
   const {memberId} = useParams();
   const [member, setMember] = useState();
-  const [namec, setNamec] = useState();
 
   const fetchMember = async () => {
     const member = await FetchMember(memberId)

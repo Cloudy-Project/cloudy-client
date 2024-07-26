@@ -1,6 +1,5 @@
 import React from 'react'
 import '../css/GoogleLoginBtn.css';
-import { Link } from 'react-router-dom';
 
 export default function GoogleLoginBtn() {
   return (
