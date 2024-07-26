@@ -2,7 +2,7 @@ name: production Deploy
 on:
   push:
     branches:
-      - feature/21-cicd
+      - main
 
 jobs:
   build-deploy:
