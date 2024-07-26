@@ -47,7 +47,8 @@ jobs:
       - name: Build
         run: |
           npm run build
-        # env:
+        env:
+          CI: ""
         #   REACT_APP_SERVER_URL: ${{ secrets.REACT_APP_SERVER_URL }}
         #   REACT_APP_SERVER_API_URL: ${{ secrets.REACT_APP_SERVER_API_URL }}
 
