@@ -60,4 +60,4 @@ jobs:
           username: ${{ secrets.EC2_USERNAME }}
           key: ${{ secrets.EC2_PRIVATE_KEY }}
           script: |
-            sudo cp -r /home/${{ secrets.EC2_USERNAME }}/client/ /usr/local/cloudy-app/
+            sudo cp -r /home/${{ secrets.EC2_USERNAME }}/client/* /usr/local/cloudy-app/
