@@ -4,10 +4,13 @@ WORKDIR /src
 
 COPY package.json .
 
-RUN npm install
+RUN npm install \
+&& npm install -g serve
 
 COPY . .
 
+RUN npm run build
+
 EXPOSE 3000
 
-CMD [ "npm", "start" ]
+CMD [ "serve", "-s", "build" ]
