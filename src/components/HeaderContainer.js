@@ -14,7 +14,7 @@ export default function HeaderContainer({ name = '' }) {
   })
   
   async function moveToMypage(){
-    const isLoggedIn = await getSessionInfo();
+    const isLoggedIn = await getSessionInfo(memberId);
     console.log('isLoggedIn : ', isLoggedIn)
       if (isLoggedIn == true) {
         navigate(`/${memberId}`); //로그인 한 경우

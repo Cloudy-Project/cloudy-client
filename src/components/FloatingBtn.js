@@ -9,7 +9,7 @@ export default function FloatingBtn({ }) {
     const {memberId} = useParams();
 
     async function moveToLetter(){
-        const isLoggedIn = await getSessionInfo();
+        const isLoggedIn = await getSessionInfo(memberId);
         console.log('isLoggedIn : ', isLoggedIn)
           if (isLoggedIn == true) {
             navigate(`/settings/${memberId}`); // /로그인한 경우
