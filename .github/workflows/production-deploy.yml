@@ -2,7 +2,7 @@ name: production Deploy
 on:
   push:
     branches:
-      - fix/26-req-test
+      - main
 
 env:
   DOCKERHUB_USERNAME: ywonchae1
