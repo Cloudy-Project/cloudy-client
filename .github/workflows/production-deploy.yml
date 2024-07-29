@@ -2,7 +2,7 @@ name: production Deploy
 on:
   push:
     branches:
-      - feature/24-docker-cd
+      - main
 
 env:
   DOCKERHUB_USERNAME: ywonchae1
