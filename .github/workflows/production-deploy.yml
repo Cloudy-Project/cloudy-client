@@ -37,6 +37,7 @@ jobs:
       # 환경변수 적용
       - name: Set environment variables
         run: |
+          echo "${{ secrets.APPLICATION_SECRETS }}"
           echo "${{ secrets.APPLICATION_SECRETS }}" >> .env
 
       - name: Set up QEMU
@@ -86,7 +87,7 @@ jobs:
           remote_path: /home/${{ secrets.EC2_USERNAME }}/cloudy-app/
       
       # 서버로 .env 파일 전송
-      - name: Copy docker compose file to EC2
+      - name: Copy .env file to EC2
         uses: burnett01/rsync-deployments@7.0.1
         with:
           switches: -avzr --delete
