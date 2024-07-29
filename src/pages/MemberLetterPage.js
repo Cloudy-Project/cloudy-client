@@ -58,7 +58,7 @@ export default function MemberLetterPage() {
     if(res.ok) {
       const result = await res.json();
       setLetter(result);
-      setReplyContent(result.answerContent);
+      setReplyContent(result.replyContent);
       setLoading(false);
     }
   }
@@ -68,7 +68,7 @@ export default function MemberLetterPage() {
   }, []);
 
   const onClickSubmit = async () => {
-    const method = letter.answerId === null ? 'POST' : 'PATCH';
+    const method = letter.replyId === null ? 'POST' : 'PATCH';
     let body;
     if(method === 'POST') {
       body = {
@@ -78,11 +78,11 @@ export default function MemberLetterPage() {
       }
     } else if(method === 'PATCH') {
       body = {
-        "id": letter.answerId,
+        "id": letter.replyId,
         "content": replyContent
       }
     }
-    const res = await fetch(process.env.REACT_APP_SERVER_API_URL + `/answer`, {
+    const res = await fetch(process.env.REACT_APP_SERVER_API_URL + `/reply`, {
       method: method,
       credentials: 'include',
       headers: {

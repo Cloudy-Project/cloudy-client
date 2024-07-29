@@ -41,7 +41,7 @@ export default function LetterPage() {
         {letter !== undefined && (
           <>
           <TextBox content={letter.content} writer={letter.writer} type='LETTER' />
-          <TextBox content={letter.answerContent} writer={letter.memberName} type='REPLY' />
+          <TextBox content={letter.replyContent} writer={letter.memberName} type='REPLY' />
           </>
         )}
       </BaseContent>
