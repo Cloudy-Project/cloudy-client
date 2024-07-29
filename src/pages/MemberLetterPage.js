@@ -125,7 +125,7 @@ export default function MemberLetterPage() {
   return (
     <BaseContainer>
       <BaseContent>
-        <HeaderContainer name={memberName} />
+        <HeaderContainer memberId={location.state.memberId} name={memberName} />
         {letter !== undefined && (
           <>
           <TextBox letterId={letterId} memberId={location.state.memberId} content={letter.content} writer={letter.writer} type='LETTER' />
