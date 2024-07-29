@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import '../css/BaseContainer.css';
 
 export default function BaseContainer({children}) {
