@@ -45,7 +45,6 @@ export default function SettingPage() {
       credentials: 'include',
       headers: {
         'Content-Type': 'application/json',
-        Cookie: `token=${cookies().get("token")?.value}`,
       },
       body: JSON.stringify(body)
     })
