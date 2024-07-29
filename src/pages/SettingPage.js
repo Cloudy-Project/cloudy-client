@@ -44,7 +44,8 @@ export default function SettingPage() {
       method: 'PATCH',
       credentials: 'include',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        Cookie: `token=${cookies().get("token")?.value}`,
       },
       body: JSON.stringify(body)
     })
