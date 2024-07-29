@@ -11,6 +11,15 @@ import WritePage from "./pages/WritePage";
 import SettingPage from "./pages/SettingPage";
 import MemberMyPage from "./pages/MemberMyPage";
 
+
+function setScreenSize() {
+  let vh = window.innerHeight * 0.01;
+
+  document.documentElement.style.setProperty('--vh', `${vh}px`);
+}
+
+setScreenSize();
+
 const router = createBrowserRouter([
   // 로그인 전 페이지
   {

@@ -25,14 +25,16 @@ export default function HeaderContainer({ memberId, name = '' }) {
 
   return (
     <div className='header-container'>
-      <div onClick={() => onClickHome()} className='home-btn-container'>
-        <img
-          className='home-btn'
-          src={require('../assets/img/Home.png')}
-          alt=''
-        />
+      <div className='header-content'>
+        <div onClick={() => onClickHome()} className='home-btn-container'>
+          <img
+            className='home-btn'
+            src={require('../assets/img/Home.png')}
+            alt=''
+          />
+        </div>
+        <label className='user-text'>{name}{consonant} 편지함</label>
       </div>
-      <label className='user-text'>{name}{consonant} 편지함</label>
     </div>
   );
 }
