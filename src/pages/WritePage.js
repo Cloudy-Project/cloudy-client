@@ -58,7 +58,7 @@ export default function WritePage() {
   return (
     <BaseContainer>
       <BaseContent>
-        <HeaderContainer name={memberName} />
+        <HeaderContainer memberId={memberId} name={memberName} />
         <InputBox onChange={setContent} content={content} name={memberName} />
         <FlexRow>
           <Label content='보내는 분 :' />

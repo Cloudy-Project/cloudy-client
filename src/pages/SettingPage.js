@@ -106,7 +106,7 @@ export default function SettingPage() {
   return (
     <BaseContainer>
       <BaseContent>
-        <HeaderContainer name={memberName} />
+        <HeaderContainer memberId={memberId} name={memberName} />
         { memberName != null && (
           <Box>
             <div

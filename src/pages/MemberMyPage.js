@@ -66,7 +66,7 @@ export default function MemberMyPage() {
     <BaseContainer>
       <BaseContent>
         {member !== null && (
-          <HeaderContainer name={member} />
+          <HeaderContainer memberId={memberId} name={member} />
         )}
         {letters.length > 0
         ? (
