@@ -32,7 +32,7 @@ export default function MemberLetterPage() {
     if(res.ok) {
       const result = await res.json();
       setLetter(result);
-      setReplyContent(result.content);
+      setReplyContent(result.answerContent);
       setLoading(false);
     }
   }

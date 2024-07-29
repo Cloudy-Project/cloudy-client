@@ -43,7 +43,6 @@ export default function WritePage() {
     }
     const res = await fetch(process.env.REACT_APP_SERVER_API_URL + `/letter`, {
       method: 'POST',
-      credentials: 'include',
       headers: {
         'Content-Type': 'application/json'
       },

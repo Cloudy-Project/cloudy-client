@@ -69,14 +69,12 @@ export default function SettingPage() {
     if(window.confirm('정말 떠나시나요..? 모든 편지와 답장이 사라져요 🥲') === false) {
       return;
     }
-    const res1 = await fetch(process.env.REACT_APP_SERVER_API_URL + `/member`, {
+    const res = await fetch(process.env.REACT_APP_SERVER_API_URL + `/member`, {
       method: 'DELETE',
       credentials: 'include'
     });
-    const res2 = await fetch(process.env.REACT_APP_SERVER_API_URL + `/logout`, {
-      credentials: 'include'
-    });
-    if(res1.ok && res2.ok) {
+    if(res.ok) {
+      alert("회원 탈퇴에 성공하였어요. 또 만나요 🥹");
       navigation('/', {replace: true});
     }
   }
