@@ -105,13 +105,6 @@ export default function MemberLetterPage() {
 
   const onChange = (e) => setReplyContent(e.target.value);
 
-  const onKeyDown = async (e) => {
-    if (e.key === "Enter" && !e.shiftKey) {
-      e.preventDefault();
-      await onClickSubmit();
-    }
-  }
-
   if (loading) {
     return (
       <BaseContainer>
@@ -133,7 +126,6 @@ export default function MemberLetterPage() {
             replier={letter.memberName}
             replyContent={replyContent}
             onChange={onChange}
-            onKeyDown={onKeyDown}
             type='REPLY' />
           </>
         )}
