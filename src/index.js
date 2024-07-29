@@ -41,7 +41,7 @@ const router = createBrowserRouter([
   {
     path: "/detail/:letterId",
     element: <MemberLetterPage />,
-  },
+  }
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

@@ -4,13 +4,14 @@ import BaseContainer from "../components/BaseContainer";
 import BaseContent from "../components/BaseContent";
 import TextBox from "../components/TextBox";
 import Button from "../components/Button";
-import { useLocation, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import ReplyInputBox from "../components/ReplyInputBox";
 import Label from "../components/Label";
 import FetchMember from "../utils/FetchMember";
 
 export default function MemberLetterPage() {
   const location = useLocation();
+  const navigation = useNavigate();
   const {letterId} = useParams();
   const [letter, setLetter] = useState();
   const [loading, setLoading] = useState(true);
@@ -18,8 +19,33 @@ export default function MemberLetterPage() {
 
   const [memberName, setMemberName] = useState();
 
+  const isLogin = async () => {
+    const res = await fetch(process.env.REACT_APP_SERVER_API_URL + `/member`, {
+      method: 'POST',
+      credentials: 'include',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+    if(res.ok) {
+      console.log('로그인 확인 완료');
+    } else {
+      alert('잘못된 접근입니다 ❌');
+      navigation('/', {replace: true});
+    }
+  }
+
+  useEffect(() => {
+    isLogin();
+  }, [])
+
   const fetchMember = async () => {
     const memberName = await FetchMember(location.state.memberId);
+    if(memberName === null) {
+      alert('잘못된 접근입니다 ❌');
+      navigation('/', {replace: true});
+      return;
+    }
     setMemberName(memberName.name);
   }
 
@@ -71,6 +97,9 @@ export default function MemberLetterPage() {
         alert('🌧️ 답장을 수정했어요!');
       }
       window.location.reload();
+    } else {
+      alert('잘못된 접근입니다 ❌');
+      navigation('/', {replace: true});
     }
   }
 
