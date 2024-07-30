@@ -6,4 +6,6 @@
   font-size: var(--ssm);
   color: var(--black-color);
   cursor: pointer;
+  overflow-x: scroll;
+  overflow-y: hidden;
 }
