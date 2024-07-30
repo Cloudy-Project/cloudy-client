@@ -14,7 +14,7 @@ export default function MyPage() {
   const [member, setMember] = useState();
 
   const fetchMember = async () => {
-    const member = await FetchMember(memberId)
+    const member = await FetchMember(memberId);
     setMember(member.name);
   }
 
