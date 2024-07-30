@@ -77,8 +77,12 @@ export default function SettingPage() {
       alert('이름을 수정했어요!');
       navigation(`/${memberId}`, {replace: true});
     } else {
-      alert('잘못된 접근입니다 ❌');
-      navigation('/', {replace: true});
+      if(memberName === "") {
+        alert('이름은 공백으로 남겨둘 수 없습니다 ❌');
+      } else {
+        alert('잘못된 접근입니다 ❌');
+        navigation('/', {replace: true});
+      }
     }
   }
 
