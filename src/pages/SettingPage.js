@@ -62,6 +62,7 @@ export default function SettingPage() {
       return;
     }
     const body = {
+      "id": memberId,
       "name": memberName
     }
     const res = await fetch(process.env.REACT_APP_SERVER_API_URL + `/member`, {
@@ -75,6 +76,9 @@ export default function SettingPage() {
     if(res.ok) {
       alert('이름을 수정했어요!');
       navigation(`/${memberId}`, {replace: true});
+    } else {
+      alert('잘못된 접근입니다 ❌');
+      navigation('/', {replace: true});
     }
   }
 
